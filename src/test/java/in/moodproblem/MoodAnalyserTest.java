@@ -16,7 +16,20 @@ public class MoodAnalyserTest {
     @Test
     public void givenMood_whenNull_shouldReturnHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyserMood(null);
-        Assert.assertEquals("HAPPY",mood);
+        try {
+            String mood = moodAnalyser.analyserMood(null);
+        }catch (Exception ex){
+            Assert.assertEquals(InvalidMoodException.class, ex.getClass());
+        }
+    }
+
+    @Test
+    public void givenMood_whenEmpty_shouldThrowInvalidMoodException() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        try {
+            moodAnalyser.analyserMood(" ");
+        }catch (Exception ex){
+            Assert.assertEquals("invalid empty mood",ex.getMessage());
+        }
     }
 }

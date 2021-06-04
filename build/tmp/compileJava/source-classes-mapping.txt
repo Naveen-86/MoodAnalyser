@@ -1,2 +1,4 @@
+in/moodproblem/InvalidMoodException.java
+ in.moodproblem.InvalidMoodException
 in/moodproblem/MoodAnalyser.java
  in.moodproblem.MoodAnalyser
