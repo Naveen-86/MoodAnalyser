@@ -8,15 +8,15 @@ import static org.hamcrest.CoreMatchers.*;
 public class MoodAnalyserTest {
     @Test
     public void testMoodAnalysis() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
-        String mood = moodAnalyser.analyserMood();
-        Assert.assertThat(mood,CoreMatchers.is("SAD"));
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.analyserMood("I am in sad mood");
+        Assert.assertTrue(mood,true);
     }
 
     @Test
-    public void testMoodAnalysis1() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in any Mood");
-        String mood = moodAnalyser.analyserMood();
-        Assert.assertThat(mood,CoreMatchers.is("HAPPY"));
+    public void givenMood_whenNull_shouldReturnHappy() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.analyserMood(null);
+        Assert.assertEquals("HAPPY",mood);
     }
 }
